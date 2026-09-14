@@ -1,0 +1,17 @@
+name: continuous-integration
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+
+      - name: PythonLint
+        uses: advanced-security/python-lint-code-scanning-action@v1.1.3
+        with:
+          linter: pylint
