@@ -1,0 +1,21 @@
+name: continuous-delivery
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+
+      - name: Simulando CD
+        uses: actions/upload-artifact@v7
+        with:
+          name: projetoZip
+          path: |
+            '**.py'
+            README.md
+            
